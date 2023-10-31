@@ -1,0 +1,23 @@
+class Solution:
+    def subArraySum(self,arr, n, s):
+        
+       #Write your code here
+        l = 0
+        r = 0
+        cur_sum = 0
+        
+        while r <= len(arr):
+            if cur_sum == s:
+                if l<r:
+                    return [l+1, r]
+                else:
+                    r+=1
+            if cur_sum < s :
+                if r < len(arr):
+                    cur_sum += arr[r]
+                r += 1
+            else:
+                cur_sum -= arr[l]
+                l +=1
+                
+        return [-1]
