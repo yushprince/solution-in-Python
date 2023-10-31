@@ -1,0 +1,5 @@
+class Solution:
+	def pushZerosToEnd(self,arr, n):
+	    non_zero_elements = [x for x in arr if x!=0]
+	    zero_count = n - len(non_zero_elements)
+	    arr[:] = non_zero_elements + [0]*zero_count
