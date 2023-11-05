@@ -1,0 +1,22 @@
+from collections import defaultdict
+import heapq
+class Solution:
+	def topK(self, nums, k):
+	    
+        freq_dict = defaultdict(int)
+        
+        for num in nums:
+            freq_dict[num] += 1
+        
+        # Step 2: Create a list of tuples (element, frequency)
+        freq_list = [(num, freq) for num, freq in freq_dict.items()]
+        
+        # Step 3: Sort the list based on frequency (descending) and element value (descending)
+        freq_list.sort(key=lambda x: (-x[1], -x[0]))
+        
+        # Step 4: Extract the first k elements
+        top_k_elements = [elem for elem, _ in freq_list[:k]]
+        
+        # Step 5: Return the list of top k elements
+        return top_k_elements
+        
